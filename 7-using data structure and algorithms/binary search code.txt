@@ -1,0 +1,98 @@
+#include <stdio.h>
+#include <stdlib.h>
+void bi_search( int target ,int*arr );
+
+int len; //make it global because i cant calculate it inside function because array send as a pointer
+
+int main()
+{
+
+while(1)
+}
+//________________________________________________________________________________________
+   int arr[]={2,4,6,8,9,11,13,14,16,18,19,28,30};
+   int target=31;
+//________________________________________________________________________________________
+  
+    printf("the array is :\n");
+    int i;
+    for(i=0;i<len;i++)
+    {
+
+      printf("%d ",arr[i]);
+    }
+
+
+    printf("\nentre target: ");
+    scanf("%d",&target);
+//________________________________________________________________________________________
+    len =sizeof(arr)/sizeof(arr[0]);
+//________________________________________________________________________________________
+    bi_search( target ,arr );
+//________________________________________________________________________________________
+    printf("_____________________________________\n");
+}
+
+}
+
+void bi_search( int target ,int*arr )
+{
+//________________________________________________________________________________________________________________________________________________
+  int start=0;
+  int end=len-1;
+ // int middle=(start+end)/2; -------write line here cant make (middle) update when (start) or (end) was changed
+  int middle; // so i declare here then write equation in while loop so (middle) can be updated when (start) or )(end) changed
+  int count=0;
+
+//________________________________________________________________________________________________________________________________________________
+
+  while(1) //while((end-start)!=0) if i mad condition like this when start=end =middle like when searching for (target 19) the loop get out before it told me that he find (target 19)
+   {
+
+      printf("\n----------------\nround_%d\n\n",++count);
+
+      middle=(start+end)/2; //for updating middle with start and end
+
+
+      printf("start = %d ---> start_value =%d\n",start,arr[start]);
+      printf("middle = %d ---> middle_value =%d\n",middle,arr[middle]);
+      printf("end = %d ---> end_value =%d\n\n",end,arr[end]);
+
+
+
+
+
+      if(target==arr[middle])
+        {
+          printf("found in position = %d\n",middle);
+          break;
+
+        }
+      else if (target<arr[middle])
+        {
+
+          end = middle-1;
+
+          printf("goto the left \nthen change end = middle-1 = %d\nthen repeat \n",end);
+
+
+        }
+
+      else if (target>arr[middle])
+        {
+          start = middle+1;
+
+          printf("goto the right \nthen change start = middle+1 = %d\nthen repeat \n",start);
+
+        }
+
+      /* make condition to stop loop if target number not inside the array */
+        if ( (start>end) || (end<start) )
+       {
+          printf("\n\n!!not found!!\n\n");
+          break;
+       }
+
+   }
+}
+

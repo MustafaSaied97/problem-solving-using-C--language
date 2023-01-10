@@ -1,0 +1,120 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void print(int arr[]);
+void  max(int arr[]);
+void  min(int arr[]);
+void  print_ascending(int arr_1[]);
+int var;
+
+int main()
+
+{
+
+      int arr_1[5];
+      int i ;
+
+      printf("Enter 5 numbers  :\n ");
+
+      for (i=0;i<5;i++)
+      {
+          scanf("%d",&arr_1[i]);
+      }
+      print(arr_1);
+      max(arr_1);
+      min(arr_1);
+      print_ascending(arr_1);
+
+
+
+
+      return 0;
+}
+
+void print(int arr[])
+{
+    int i ;
+    for (i=0;i<5;i++)
+      {
+          printf(" %d ",arr[i]);
+      }
+}
+
+void  max(int arr[])
+{
+    int i=0 ;
+    int position_of_max =0 ;
+    int MAX=arr[0];
+
+    for (i=0;i<5;i++)
+      {
+          if (arr[i]>= MAX)
+          {
+               MAX=arr[i];
+               position_of_max= i;
+          }
+          else{}
+      }
+
+      printf("\nthe maximum number is %d in position %d\n",MAX,position_of_max);
+}
+
+void  min(int arr[])
+{
+    int i=0 ;
+    int position_of_min =0 ;
+    int MIN=arr[0];
+    for (i=0;i<5;i++)
+      {
+          if (arr[i]<= MIN)
+          {
+               MIN=arr[i];
+               position_of_min= i;
+          }
+          else{}
+      }
+      printf("the minimum number is %d in position %d\n",MIN,position_of_min);
+}
+
+
+void  print_ascending(int arr_1[])
+{
+    int arr_2[5];
+    int j=0 ,i=0 ,x=0;
+    int position_of_min =0 ;
+
+    printf("Array in Ascending Order : ");
+
+    for(j=0;j<5;j++)
+    {
+
+            int MIN=arr_1[x];
+            for (i=x;i<5;i++)
+            {
+               if (arr_1[i]<= MIN)
+               {
+                  MIN=arr_1[i];
+                  position_of_min =i ;
+
+               }
+               else{}
+            }
+
+
+
+       arr_2[j]=MIN;
+       printf("  %d",arr_2[j]);
+
+       /*changing elements of arr1*/
+       arr_1[position_of_min]=arr_1[j];
+
+       /*reducing size of  arr1 for searching  for minimum element */
+       x++;
+    }
+
+
+}
+
+
+
+

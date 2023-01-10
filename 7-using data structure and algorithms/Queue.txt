@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct Queue
+{
+    int a[3];
+    int head;
+    int tail;
+
+}Queue;
+
+//____________________________________________
+void Queue_init(Queue*p)
+{
+    p->head=0;
+    p->tail=0;
+
+}
+
+//____________________________________________
+void Queue_add(Queue*p,int data)
+{
+    if (p->tail==3) // for more dynamism if (p->top==  (sizeof(x.a)/sizeof(x.a[0]))) )
+    {
+        printf("Queue is full\n");
+    }
+    else
+    {
+
+        p->a[p->tail]=data;
+        p->tail++;
+    }
+}
+
+//____________________________________________
+int Queue_remove(Queue*p)
+{
+    int data=0;
+    if (p->tail==p->head)
+    {
+        printf("Queue is empty");
+
+
+    }
+    else
+    {
+        data=p->a[p->head];
+        //for shifting:
+        int i;
+        for (i=0;i<p->tail-1;i++)
+        {
+           p->a[i] = p->a[i+1] ;
+        }
+
+        p->tail--;
+    }
+    return data;
+}
+
+//____________________________________________
+int main()
+{
+
+    int data;
+    Queue x;
+    Queue_init(&x);
+
+
+
+Queue_add(&x,1);
+Queue_add(&x,2);
+Queue_add(&x,3);
+Queue_add(&x,4);
+
+
+printf("%i\n",Queue_remove(&x));
+printf("%i\n",Queue_remove(&x));
+printf("%i\n",Queue_remove(&x));
+Queue_remove(&x);
+
+
+
+
+
+
+}
+

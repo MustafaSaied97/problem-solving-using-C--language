@@ -1,0 +1,4 @@
+- Write a program that ask the user to enter 5 numbers and store it in array
+- implement funtion that get max number in array
+- implement funtion that get min number in array
+- implement funtion that sort numbers in array in in ascending order

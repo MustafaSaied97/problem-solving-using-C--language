@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+void Swap(int x,int y);
+int var;
+int main()
+{
+
+      int number_1;
+
+      printf("Enter first number :\n ");
+      scanf("%d",&number_1);
+
+      int number_2;
+      printf("Enter second number : \n");
+      scanf("%d",&number_2);
+
+      var=number_2;
+
+      Swap(number_1,number_2);
+
+
+
+      return 0;
+}
+
+void Swap(int x,int y)
+{
+
+
+    printf("before swapping \n  x = %d   y = %d\n ",x,y);
+    printf("after swapping \n   x = %d    y = %d ",x=var,y=x);
+
+}

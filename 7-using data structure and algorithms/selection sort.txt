@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+int main()
+{
+
+
+
+//________________________________________________________________________________________
+   int arr[]={6,7,8,9,10,14,3048,489,4,84,8,498,4,84,4,8,48,94,29,894,48,88,11,17,22,28,25,15,23};
+   int len=sizeof(arr)/sizeof(arr[0]);
+//________________________________________________________________________________________
+
+    printf("array before sorted\n");
+
+    int i;
+    for (i=0;i<len;i++)
+   {
+     printf (" %d",arr[i]);
+   }
+
+
+
+
+
+
+    printf("\n\narray after sorted\n");
+    selection_sort(arr,len);
+     for (i=0;i<len;i++)
+   {
+     printf (" %d",arr[i]);
+   }
+
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------------------
+
+int min( int*arr , int len) // passing  length of array instead of making length global variable
+{
+
+  int min=arr[0];
+
+  int i;
+
+  for (i=0;i<len;i++)
+   {
+     if (arr[i]<= min)
+       {
+         min=arr[i];
+
+       }
+   }
+
+ return min ;
+}
+
+
+
+//----------------------------------------------------------------------------------------------------------------------------------
+int get_position(int number, int*arr , int len)
+{
+  int i;
+  /*position_of_number_inside_array*/
+  int position ;
+  for (i=0;i<len;i++)
+   {
+     if (arr[i]==number)
+       {
+         position=i;
+       }
+   }
+
+ return position  ;
+}
+
+
+//----------------------------------------------------------------------------------------------------------------------------------
+
+void selection_sort(int*arr,int len )
+{
+    int i;
+    int minimum;
+
+    for (i=0;i<len;i++)
+    {
+        /* searching for minimum inside array*/
+       minimum=min(arr+i,len-i);
+
+      /* swap*/
+       arr[get_position(minimum,arr,len)]=arr[i];
+       arr[i]=minimum;
+
+       /* then repeat after decrease array element (start point +1 __arr+i) (end point-1 __len-i)*/
+    }
+}

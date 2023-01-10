@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void  linera_search(int a[],int size, int x);
+
+
+int main()
+
+{
+
+    int x,len;
+    int arr[]={1,2,3,4,5,6};
+    len= sizeof(arr)/sizeof(arr[0]);
+    printf("enter the number for searching in array : ");
+    scanf("%d",&x);
+    linera_search(arr,len,x);
+
+
+
+
+      return 0;
+}
+
+void  linera_search(int a[],int size, int x)
+{
+    int i,flag;
+    for (i=0;i<size;i++)
+    {
+        if(a[i]== x)
+        {
+            flag=1;
+        }
+    }
+    if (flag==1)
+    {
+        printf("found\n");
+    }
+    else
+    {
+        printf(" not found \n");
+    }
+}

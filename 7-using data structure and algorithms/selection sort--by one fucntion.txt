@@ -1,0 +1,131 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+int main()
+{
+
+
+
+//________________________________________________________________________________________
+   int arr[]={20,15,12,14,10,8,4,2};
+   int len=sizeof(arr)/sizeof(arr[0]);
+//________________________________________________________________________________________
+
+    printf("array before sorted\n");
+
+    int i;
+    for (i=0;i<len;i++)
+   {
+     printf (" %d",arr[i]);
+   }
+
+
+
+
+
+
+    printf("\n\narray after sorted\n\n");
+    selection_sort(arr,len);
+    printf (" \n\n");
+     for (i=0;i<len;i++)
+   {
+     printf (" %d",arr[i]);
+   }
+
+}
+
+
+/*
+//----------------------------------------------------------------------------------------------------------------------------------
+
+int min( int*arr , int len) // passing  length of array instead of making length global variable
+{
+
+  int min=arr[0];
+
+  int i;
+
+  for (i=0;i<len;i++)
+   {
+     if (arr[i]<= min)
+       {
+         min=arr[i];
+
+       }
+   }
+
+ return min ;
+}
+
+*/
+/*
+//----------------------------------------------------------------------------------------------------------------------------------
+int get_position(int number, int*arr , int len)
+{
+  int i;
+  /*position_of_number_inside_array
+  int position ;
+  for (i=0;i<len;i++)
+   {
+     if (arr[i]==number)
+       {
+         position=i;
+       }
+   }
+
+ return position  ;
+}
+*/
+
+//----------------------------------------------------------------------------------------------------------------------------------
+/*
+void selection_sort(int*arr,int len )
+{
+    int i;
+    int minimum;
+
+    for (i=0;i<len;i++)
+    {
+       // searching for minimum inside array
+       minimum=min(arr+i,len-i);
+
+      // swap
+       arr[get_position(minimum,arr,len)]=arr[i];
+       arr[i]=minimum;
+
+       //then repeat after decrease array element (start point +1 __arr+i) (end point-1 __len-i)
+    }
+
+}
+
+*/
+
+void selection_sort(int*arr,int len )
+{
+    int i,j;
+    int min,min_position;
+
+    for (i=0;i<len;i++)
+    {
+      /* searching for minimum inside array*/
+        min=arr[i];
+        for (j=i;j<len;j++)   //for (j=i;j<len-i;j++) <----متكتبش الكود كده   ---  (len-i) not mean number of iteration  but mean  stop condition
+        {                       //to calculate number of iteration need according to new length of array (stop condition - start of j)/update step ---example --> if stop condition =7 and start of j =0 so iteration = 7-0=7
+            if (arr[j]<=min)                                                                                                                                    //if stop condition =7 and start of j =1 so iteration = 7-1=6
+            {                                                                                                                                                  // so to change length of array increase start point but fixed stop condition
+                min=arr[j];
+                min_position=j;
+            }
+        }
+
+        printf (" min = %d min_position = %d\n",min,min_position);
+      /* swap*/
+      arr[min_position]=arr[i];
+      arr[i]=min;
+
+
+       /* then repeat after decrease array element (start point +1 __arr+i) (end point-1 __len-i)*/
+    }
+}

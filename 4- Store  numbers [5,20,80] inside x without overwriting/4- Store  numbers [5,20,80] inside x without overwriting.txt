@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void edit(int*x);
+int main()
+{
+
+      int x;
+
+      printf("Enter the value of x  :\n ");
+      scanf("%d",&x);
+
+
+
+      printf("before calling edit x = %d\n",x);
+
+      edit(&x);
+
+      printf("after calling edit  x = %d\n\n",x);
+
+
+//Store these numbers [5,20,80] inside x without overwriting
+      char*ptr=&x;
+      *ptr=5;
+      *(ptr+1)=20;
+      *(ptr+2)=80;
+
+      printf("first byte in x = %d\n",*ptr);
+      printf("second byte in x = %d\n",*(ptr+1));
+      printf("third byte in x = %d\n\n",*(ptr+2));
+
+
+
+
+
+
+
+
+      return 0;
+}
+
+void edit(int*x)
+{
+
+    (*x)++;
+}

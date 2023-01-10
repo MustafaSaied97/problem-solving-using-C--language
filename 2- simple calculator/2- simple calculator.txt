@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+      float number_1;
+
+      printf("Enter number_1 :\n ");
+      scanf("%f",&number_1);
+
+      char op[1];
+      printf("Enter the operator :\n ");
+      scanf("%s",&op);
+
+
+
+      float number_2;
+      printf("Enter number_2 : \n");
+      scanf("%f",&number_2);
+
+
+
+      if(op[0] == '+')
+      {
+          printf("the result =  %0.2f\n ",number_1+number_2);
+      }
+      else if (op[0] =='-')
+      {
+            printf("the result =  %0.2f\n ",number_1-number_2);
+      }
+      else if (op[0] == '*')
+      {
+          printf("the result =  %0.2f\n ",number_1*number_2);
+      }
+      else
+      {
+          printf("not working \n ");
+      }
+
+
+
+
+
+
+      return 0;
+}
