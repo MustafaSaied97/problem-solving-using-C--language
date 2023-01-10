@@ -1,1 +1,1 @@
-# problem-solving-using-C--language
+all codes to run correctly use code blocks IDE
